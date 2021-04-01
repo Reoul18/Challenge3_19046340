@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 3 - RL</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+    <script src="script.js" defer></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+
+
+    <!-- Geocoder assets -->
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" />
+
+</head>
+
+<body>
+    <header class="head">
+        <img src="logo.png" class="logo">
+        <h1>Live Landing Dashboard</h1>
+    </header>
+    <main>
+        <div class="landing">
+            <h3>Landing Plekken</h3>
+            <p>In deze map kunt u de beschikbare landingplekken zien</p>
+            <div id="map"></div>
+        </div>
+        <div class="weer">
+            <h3>Het weer</h3>
+            <p>Hier kunt u de beschrijving van het weer op elke landingplek zien</p>
+            <article id="weather"></article>
+            <input type="text" id="city">
+            <input type="button" id="cityButton" value="Weer van deze stad">
+        </div>
+    </main>
+</body>
+
+</html>
