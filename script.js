@@ -7,8 +7,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicmVvdWwxOCIsImEiOiJja21sdG90ZWUwZ21vMnByem1wM
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/outdoors-v11',
-    center: [4.32284, 52.067101],
-    zoom: 7,
+    center: [-56.283417, 51.113046],
+    zoom: 0.2,
     bearing: -180,
     pitch: 45,
   });
@@ -25,55 +25,17 @@ map.addControl(
 
 
 
-map.on('load', function () {
-  map.loadImage(
-      'https://en.wikipedia.org/wiki/Vandenberg_Air_Force_Base#/media/File:Titan_IV_Centaur_launch_-_Vandenberg_AFB.jpg',
-      function (error, image) {
-          if (error) throw error;
-          map.addImage('island', image);
-          map.addSource('point', {
-              'type': 'geojson',
-              'data': {
-                  'type': 'FeatureCollection',
-                  'features': [
-                      {
-                          'type': 'Feature',
-                          'geometry': {
-                              'type': 'Point',
-                              'coordinates': [0, 0]
-                          }
-                      }
-                  ]
-              }
-          });
-          map.addLayer({
-              'id': 'points',
-              'type': 'symbol',
-              'source': 'point',
-              'layout': {
-                  'icon-image': 'island',
-                  'icon-size': 0.25
-              }
-          });
-      }
-  );
-});
 
+map.addControl(new mapboxgl.NavigationControl()); 
 
-// map.addControl(new mapboxgl.NavigationControl()); 
+var Florida = new mapboxgl.Popup().setHTML('<h3>Space Launch Complex 40</h3><p>1e Landingplek <br /> Check het weer onder de map.<br /> Stad: Florida</p>');
+var California = new mapboxgl.Popup().setHTML('<h3>Vandenberg Air Force Base</h3><p>1e Landingplek <br /> Check het weer onder de map.<br /> Stad: California</p>');
+var DenHaag = new mapboxgl.Popup().setHTML('<h3>Den Haag</h3><p>3e Landingplek <br /> Check het weer onder de map.<br /> Stad: Den Haag </p>');
 
-// var Amsterdam = new mapboxgl.Popup().setHTML('<h1>Amsterdam</h1><h3>Beste Landingplek</h3>');
-// var Rotterdam = new mapboxgl.Popup().setHTML('<h3>2e Landingplek</h3>');
-// var Zeeland = new mapboxgl.Popup().setHTML('<h3>3e Landingplek</h3>');
-// var Friesland = new mapboxgl.Popup().setHTML('<h3>4e Landingplek</h3>');
-// var Limburg = new mapboxgl.Popup().setHTML('<h3>5e Landingplek</h3>');
-
-// // Adding a marker based on lon lat coordinates
-// var marker = new mapboxgl.Marker().setLngLat([4.895168, 52.370216]).setPopup(Amsterdam).addTo(map);
-// var marker = new mapboxgl.Marker().setLngLat([4.463179, 51.922893]).setPopup(Rotterdam).addTo(map);
-// var marker = new mapboxgl.Marker().setLngLat([3.702806, 51.416297]).setPopup(Zeeland).addTo(map);
-// var marker = new mapboxgl.Marker().setLngLat([5.777043, 53.092369]).setPopup(Friesland).addTo(map);
-// var marker = new mapboxgl.Marker().setLngLat([5.9046302, 51.201520]).setPopup(Limburg).addTo(map);
+// Adding a marker based on lon lat coordinates
+var marker = new mapboxgl.Marker().setLngLat([-80.577249, 28.562048]).setPopup(Florida).addTo(map);
+var marker = new mapboxgl.Marker().setLngLat([-120.567747, 34.733238]).setPopup(California).addTo(map);
+var marker = new mapboxgl.Marker().setLngLat([4.32284, 52.067101]).setPopup(DenHaag).addTo(map);
 
 
 
