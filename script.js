@@ -8,7 +8,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/outdoors-v11',
     center: [-56.283417, 51.113046],
-    zoom: 0.2,
+    zoom: 2,
     bearing: -180,
     pitch: 45,
   });
@@ -22,8 +22,6 @@ map.addControl(
   }),
   'top-left'
 );
-
-
 
 
 map.addControl(new mapboxgl.NavigationControl()); 
@@ -121,9 +119,9 @@ function plotImageOnMap(icon, city) {
 function getAPIdata() {
 
 	// construct request
-    var city = document.getElementById("city").value;
-	var request = 'https://api.openweathermap.org/data/2.5/weather?appid=4d3aa280b33cfb3bb3f277c9ee3d0b73&q=' + city;
-	
+  var city = document.getElementById("city").value;
+	var request = 'https://api.openweathermap.org/data/2.5/weather?appid=4d3aa280b33cfb3bb3f277c9ee3d0b73&lang=nl&q=' + city;
+
 	// get current weather
 	fetch(request)	
 	
@@ -142,6 +140,54 @@ function getAPIdata() {
 
 document.getElementById('cityButton').onclick = function(){
     getAPIdata();
+};
+
+
+
+function getAPIdata2() {
+
+	// construct request
+	var request2 = 'https://random.dog/woof.json?ref=apilist.fun';
+	var img = document.getElementById('honden');
+	// get current weather
+	fetch(request2)	
+	
+	// parse response to JSON format
+	.then(function(response) {
+		return response.json();
+	})
+	
+	// do something with response
+	.then(function(response) {
+		
+		// show full JSON object
+		
+	img.src =  response.url;
+	console.log(response);
+	});
+}
+
+// init data stream
+document.getElementById('fotoHond').onclick = function(){
+
+	getAPIdata2();
+
+}
+
+
+getAPIdata2();
+
+
+
+//Animatie Elon Musk
+var mainHeading = document.getElementById('elon');
+
+document.getElementById('playButton').onclick = function(){
+	mainHeading.classList.add('changesSize');
+};
+
+document.getElementById('backButton').onclick = function(){
+	mainHeading.classList.remove('changesSize');
 };
 
 
