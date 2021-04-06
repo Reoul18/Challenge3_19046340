@@ -1,9 +1,9 @@
 
-// Set api token
+// api
 mapboxgl.accessToken = 'pk.eyJ1IjoicmVvdWwxOCIsImEiOiJja21sdG90ZWUwZ21vMnByem1wM3JoenZyIn0.5p8Yliukd7hh1N9X3rA9Wg';
 	
 
-// Initiate map
+// map
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/outdoors-v11',
@@ -14,7 +14,7 @@ var map = new mapboxgl.Map({
   });
 
 
-// Voeg de zoekbalk toe
+// de zoekbalk
 map.addControl(
   new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
@@ -30,7 +30,7 @@ var Florida = new mapboxgl.Popup().setHTML('<h3>Space Launch Complex 40</h3><p>1
 var California = new mapboxgl.Popup().setHTML('<h3>Vandenberg Air Force Base</h3><p>1e Landingplek <br /> Check het weer onder de map.<br /> Stad: California</p>');
 var DenHaag = new mapboxgl.Popup().setHTML('<h3>Den Haag</h3><p>3e Landingplek <br /> Check het weer onder de map.<br /> Stad: Den Haag </p>');
 
-// Adding a marker based on lon lat coordinates
+// marker zetten op deze coordinaten
 var marker = new mapboxgl.Marker().setLngLat([-80.577249, 28.562048]).setPopup(Florida).addTo(map);
 var marker = new mapboxgl.Marker().setLngLat([-120.567747, 34.733238]).setPopup(California).addTo(map);
 var marker = new mapboxgl.Marker().setLngLat([4.32284, 52.067101]).setPopup(DenHaag).addTo(map);
@@ -38,12 +38,11 @@ var marker = new mapboxgl.Marker().setLngLat([4.32284, 52.067101]).setPopup(DenH
 
 
 
-// api token for openWeatherMap
-var openWeatherMapUrl = 'https://api.openweathermap.org/data/2.5/weather';
-var openWeatherMapUrlApiKey = '4d3aa280b33cfb3bb3f277c9ee3d0b73';
+// api key weathermap
+var mapUrl = 'https://api.openweathermap.org/data/2.5/weather';
+var mapUrlApiKey = '4d3aa280b33cfb3bb3f277c9ee3d0b73';
 
-// Determine cities
-var cities = [
+var steden = [
   {
     name: 'Cape Canaveral Air Force Station Lanceercomplex 40',
     coordinates: [-80.577249, 28.562048]
@@ -59,22 +58,16 @@ var cities = [
 ];
 
 
-
-// get weather data and plot on map
 map.on('load', function () {
-  cities.forEach(function(city) {
-    // Usually you do not want to call an api multiple times, but in this case we have to
-    // because the openWeatherMap API does not allow multiple lat lon coords in one request.
-    var request = openWeatherMapUrl + '?' + 'appid=' + openWeatherMapUrlApiKey + '&lon=' + city.coordinates[0] + '&lat=' + city.coordinates[1];
+  steden.forEach(function(city) {
+    var request = mapUrl + '?' + 'appid=' + mapUrlApiKey + '&lon=' + city.coordinates[0] + '&lat=' + city.coordinates[1];
 
-    // Get current weather based on cities' coordinates
     fetch(request)
       .then(function(response) {
         if(!response.ok) throw Error(response.statusText);
         return response.json();
       })
       .then(function(response) {
-        // Then plot the weather response + icon on MapBox
         plotImageOnMap(response.weather[0].icon, city)
       })
       .catch(function (error) {
@@ -118,21 +111,16 @@ function plotImageOnMap(icon, city) {
 
 function getAPIdata() {
 
-	// construct request
   var city = document.getElementById('stad').value;
 	var request = 'https://api.openweathermap.org/data/2.5/weather?appid=4d3aa280b33cfb3bb3f277c9ee3d0b73&lang=nl&q=' + city;
 
-	// get current weather
 	fetch(request)	
 	
-	// parse response to JSON format
 	.then(function(response) {
 		return response.json();
 	})
 	
-	// do something with response
 	.then(function(response) {
-		// show full JSON object
 	  var weatherBox = document.getElementById('weather');
 		weatherBox.innerHTML = (response.main.temp -273.15).toFixed(2)+' &#730 C <br />' + response.weather[0].description;
 	});
@@ -143,31 +131,24 @@ document.getElementById('weerButton').onclick = function(){
 };
 
 
-
+//Random Hond Foto
 function getAPIdata2() {
 
-	// construct request
 	var request2 = 'https://random.dog/woof.json?ref=apilist.fun';
 	var img = document.getElementById('honden');
-	// get current weather
 	fetch(request2)	
 	
-	// parse response to JSON format
 	.then(function(response) {
 		return response.json();
 	})
 	
-	// do something with response
 	.then(function(response) {
-		
-		// show full JSON object
 		
 	img.src =  response.url;
 	console.log(response);
 	});
 }
 
-// init data stream
 document.getElementById('fotoButton').onclick = function(){
 
 	getAPIdata2();

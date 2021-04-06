@@ -2,9 +2,6 @@ body {
 	color: #0d8bdf;    
 	font-family: Nasalization;
 	background-color: black;
-    /* background-image: url("background.jpg");
-    background-position: center;
-    background-repeat: no-repeat; */
 }
 
 main{    
@@ -107,12 +104,16 @@ p, h5{
 
 #elon.changesSize {
 	transition-duration: 3s;
-	margin-top: 245px;
+	margin-top: 350px;
 	transition-timing-function: ease-in;
 	transition: 3s ease-in-out;
     opacity: 1;
 }
-
+.rocketje{
+    height: 250px;
+    width: auto;
+    margin-left: 250px;
+}
 #playButton, #backButton{
     height: 50px;
     width: 150px;
@@ -124,7 +125,7 @@ p, h5{
 
 .buttons{
     position: absolute;
-    top: 1000px;
+    top: 950px;
     margin-left: 20px;
 }
 
