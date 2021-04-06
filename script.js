@@ -31,9 +31,9 @@ var California = new mapboxgl.Popup().setHTML('<h3>Vandenberg Air Force Base</h3
 var DenHaag = new mapboxgl.Popup().setHTML('<h3>Den Haag</h3><p>3e Landingplek <br /> Check het weer onder de map.<br /> Stad: Den Haag </p>');
 
 // marker zetten op deze coordinaten
-var marker = new mapboxgl.Marker().setLngLat([-80.577249, 28.562048]).setPopup(Florida).addTo(map);
-var marker = new mapboxgl.Marker().setLngLat([-120.567747, 34.733238]).setPopup(California).addTo(map);
-var marker = new mapboxgl.Marker().setLngLat([4.32284, 52.067101]).setPopup(DenHaag).addTo(map);
+var marker = new mapboxgl.Marker({color:'#0d8bdf'}).setLngLat([-80.577249, 28.562048]).setPopup(Florida).addTo(map);
+var marker = new mapboxgl.Marker({color:'#0d8bdf'}).setLngLat([-120.567747, 34.733238]).setPopup(California).addTo(map);
+var marker = new mapboxgl.Marker({color:'#0d8bdf'}).setLngLat([4.32284, 52.067101]).setPopup(DenHaag).addTo(map);
 
 
 
