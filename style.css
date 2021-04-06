@@ -62,8 +62,8 @@ p, h5{
 	background-color: rgba(255, 247, 247, 0.8);
     border-radius: 20%;
     font-size: 18px;
-	width: 80px;
-    height: 70px;
+	width: 120px;
+    height: 100px;
 	padding: 5px;
 	text-align: center;
     margin: 10px;
@@ -174,8 +174,7 @@ p, h5{
     }
     #weather{
         font-size: 20px;
-        width: 90px;
-        height: 80px;
+        width: 130px;
     }
     #stad{
         height: 22px;
@@ -215,8 +214,8 @@ p, h5{
     }
     #weather{
         font-size: 22px;
-        width: 100px;
-        height: 90px;
+        width: 150px;
+        height: 100px;
     }
     #stad{
         height: 20px;
@@ -255,7 +254,7 @@ p, h5{
     }
     #weather{
         font-size: 25px;
-        width: 110px;
+        width: 160px;
         height: 100px;
     }
     #stad{
