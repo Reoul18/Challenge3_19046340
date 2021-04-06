@@ -1,5 +1,5 @@
 body {
-	color: #005288;    
+	color: #0d8bdf;    
 	font-family: Nasalization;
 	background-color: black;
     /* background-image: url("background.jpg");
@@ -8,7 +8,7 @@ body {
 }
 
 main{    
-    margin: 5vh 5vw;
+    margin: 2vh 2vw;
   
 }
 #map {
@@ -26,8 +26,7 @@ h1{
     font-size: 2em;
     text-align: center;
     margin: auto;
-    margin-bottom: 20px;
-    background-color: rgba(255, 247, 247, 0.8);
+    margin-bottom: 30px;
     border-radius: 20%;
 }
 
@@ -40,11 +39,26 @@ p, h5{
     display: none;
 }
 
-.landing, .weer, .foto, .animatie{
-    margin-bottom: 50px;
+.landing, .weer, .foto, .animatie, .sayings{
+    margin-bottom: 20px;
     padding: 20px;
-    border: 2px solid  rgba(255, 247, 247, 0.8);
     border-radius: 25px;
+}
+
+.landing{
+    border: 2px solid #8ef1f8;
+}
+.weer{
+    border: 2px solid #94baff;
+}
+.foto{
+    border: 2px solid #92bc85;
+}
+.animatie{
+    border: 2px solid #f3e2a9;
+}
+.sayings{
+    border: 2px solid #d47489;
 }
 
 #weather{
@@ -58,7 +72,7 @@ p, h5{
     margin: 10px;
 }
 
-#city{
+#stad{
     height: 20px;
     width: 200px;
 }
@@ -66,7 +80,7 @@ p, h5{
     line-height: 1;
 }
 
-#cityButton, #fotoHond{
+#weerButton, #fotoButton, #result{
     font-family: nasalization;
     margin-top: 10px;
     height: 50px;
@@ -76,7 +90,6 @@ p, h5{
     border-radius: 20%;
     font-size: 15px;
 }
-
 #honden {
 	max-width: 300px;
 }
@@ -94,9 +107,9 @@ p, h5{
 
 #elon.changesSize {
 	transition-duration: 3s;
-	margin-top: 275px;
+	margin-top: 245px;
 	transition-timing-function: ease-in;
-	transition: 5s ease-in-out;
+	transition: 3s ease-in-out;
     opacity: 1;
 }
 
@@ -111,7 +124,8 @@ p, h5{
 
 .buttons{
     position: absolute;
-    top: 1050px;
+    top: 1000px;
+    margin-left: 20px;
 }
 
 
@@ -128,6 +142,9 @@ p, h5{
 .animatie{
     grid-area: animatie;
 }
+.sayings{
+    grid-area: sayings;
+}
 
 
 @media only screen and (min-width: 768px) and (max-width: 1365px){
@@ -137,7 +154,8 @@ p, h5{
         grid-template-areas: 
         "landing landing"
         "weer weer"
-        "foto foto";
+        "foto foto"
+        "sayings sayings";
         gap: 5px;
     }
     
@@ -158,11 +176,11 @@ p, h5{
         width: 90px;
         height: 80px;
     }
-    #city{
+    #stad{
         height: 22px;
         width: 250px;
     }
-    #cityButton, #fotoHond{
+    #weerButton, #fotoButton, #result{
         width: 150px;
         margin-top: 10px;
         font-size: 18px;
@@ -178,7 +196,8 @@ p, h5{
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
         "landing landing"
-        "weer foto";
+        "weer foto"
+        "sayings foto";
         gap: 5px;
     } 
     .logo{
@@ -198,11 +217,11 @@ p, h5{
         width: 100px;
         height: 90px;
     }
-    #city{
+    #stad{
         height: 20px;
         width: 300px;
     }
-    #cityButton, #fotoHond{
+    #weerButton, #fotoButton, #result{
         width: 160px;
         margin-top: 10px;
         font-size: 20px;
@@ -210,7 +229,6 @@ p, h5{
     #honden {
         max-width: 500px;
     }
-    
 }
 @media only screen and (min-width: 1920px){
     main{
@@ -218,7 +236,8 @@ p, h5{
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas: 
         "landing landing animatie"
-        "weer foto foto";
+        "weer foto foto"
+        "sayings foto foto";
         gap: 5px;
     } 
     .logo{
@@ -231,18 +250,18 @@ p, h5{
         display: block;
     }
     #map {
-        height: 85vh;
+        height: 105vh;
     }
     #weather{
         font-size: 25px;
         width: 110px;
         height: 100px;
     }
-    #city{
+    #stad{
         height: 25px;
         width: 350px;
     }
-    #cityButton, #fotoHond{
+    #weerButton, #fotoButton, #result{
         width: 170px;
         margin-top: 10px;
         font-size: 25px;

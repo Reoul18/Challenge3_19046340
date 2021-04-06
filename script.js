@@ -119,7 +119,7 @@ function plotImageOnMap(icon, city) {
 function getAPIdata() {
 
 	// construct request
-  var city = document.getElementById("city").value;
+  var city = document.getElementById('stad').value;
 	var request = 'https://api.openweathermap.org/data/2.5/weather?appid=4d3aa280b33cfb3bb3f277c9ee3d0b73&lang=nl&q=' + city;
 
 	// get current weather
@@ -138,7 +138,7 @@ function getAPIdata() {
 	});
 }
 
-document.getElementById('cityButton').onclick = function(){
+document.getElementById('weerButton').onclick = function(){
     getAPIdata();
 };
 
@@ -168,7 +168,7 @@ function getAPIdata2() {
 }
 
 // init data stream
-document.getElementById('fotoHond').onclick = function(){
+document.getElementById('fotoButton').onclick = function(){
 
 	getAPIdata2();
 
@@ -189,5 +189,24 @@ document.getElementById('playButton').onclick = function(){
 document.getElementById('backButton').onclick = function(){
 	mainHeading.classList.remove('changesSize');
 };
+
+//Quotes Api
+function getJokes(){
+  var link = 'https://freequote.herokuapp.com/'
+
+  fetch(link)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(response){
+    var ask = response.quote;
+    document.getElementById('quotes').innerHTML = ask; 
+  })
+}
+getJokes();
+
+document.getElementById('result').onclick = function(){
+  getJokes();
+}
 
 
